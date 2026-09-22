@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cronograma de Implantação</title>
+<style>
+:root {
+  --blue:#1464f4; --blue2:#0b3d91; --text:#172033; --muted:#687386;
+  --bg:#f4f7fb; --card:#fff; --line:#e6ebf2; --green:#16a36a;
+  --orange:#d98a00; --gray:#7b8494;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
+.hero{background:linear-gradient(135deg,#0b3d91,#1464f4);color:white;padding:42px 7% 52px}
+.hero .eyebrow{font-size:13px;text-transform:uppercase;letter-spacing:2px;opacity:.8}
+.hero h1{margin:8px 0 8px;font-size:38px}
+.hero p{margin:0;opacity:.88;font-size:16px}
+.container{max-width:1180px;margin:-25px auto 50px;padding:0 22px}
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:25px}
+.stat{background:white;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 7px 24px rgba(25,45,80,.06)}
+.stat b{font-size:28px;display:block}
+.stat span{font-size:13px;color:var(--muted)}
+.timeline{position:relative}
+.timeline:before{content:"";position:absolute;left:18px;top:0;bottom:0;width:2px;background:#dbe3ef}
+.month{position:relative;margin:0 0 20px 0;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 7px 24px rgba(25,45,80,.05);overflow:hidden}
+.month:before{content:"";position:absolute;left:11px;top:27px;width:16px;height:16px;border-radius:50%;background:var(--blue);border:4px solid var(--bg);z-index:2}
+.month-head{margin-left:42px;padding:20px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.month-title{font-size:20px;font-weight:750}
+.period{font-size:13px;color:var(--muted);margin-top:3px}
+.count{font-size:12px;color:var(--blue);background:#eef4ff;padding:7px 10px;border-radius:20px;font-weight:700}
+.tasks{padding:6px 22px 8px 42px}
+.task{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid #f0f2f6}
+.task:last-child{border-bottom:0}
+.dot{width:9px;height:9px;border-radius:50%;margin-top:7px;flex:none}
+.dot.done{background:var(--green)} .dot.progress{background:var(--blue)}
+.dot.standby{background:var(--orange)} .dot.pending{background:#a7afbd}
+.task-title{font-weight:650;font-size:14px;line-height:1.4}
+.task-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;color:var(--muted);font-size:12px;align-items:center}
+.badge{padding:3px 8px;border-radius:20px;font-weight:700}
+.badge.done{background:#e8f8f1;color:#087548} .badge.progress{background:#eaf1ff;color:#1258d4}
+.badge.standby{background:#fff4dc;color:#996100} .badge.pending{background:#eef0f4;color:#687386}
+.obs{margin-top:7px;color:#657084;font-size:12px;line-height:1.45}
+.legend{background:white;border:1px solid var(--line);border-radius:14px;padding:15px 18px;margin-bottom:18px;display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.legend span{display:flex;align-items:center;gap:7px}
+footer{text-align:center;color:#8993a4;font-size:12px;padding:5px 0 30px}
+@media(max-width:750px){
+ .hero{padding:30px 5% 42px} .hero h1{font-size:29px}
+ .container{padding:0 12px} .summary{grid-template-columns:repeat(2,1fr)}
+ .month-head{margin-left:35px;padding:16px} .tasks{padding-left:35px}
+}
+@media print{
+ body{background:white} .hero{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+ .month{break-inside:avoid;box-shadow:none} .container{margin-top:15px}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="eyebrow">Implantação do sistema</div>
+  <h1>Cronograma de Implantação</h1>
+  <p>Visão geral das etapas, treinamentos, validações e preparação para o GO LIVE.</p>
+</header>
+
+<main class="container">
+  <div class="summary">
+    <div class="stat"><b>42</b><span>atividades no cronograma</span></div>
+    <div class="stat"><b>15/09</b><span>início do cronograma</span></div>
+    <div class="stat"><b>31/03</b><span>fechamento técnico previsto</span></div>
+    <div class="stat"><b>01/04</b><span>GO LIVE</span></div>
+  </div>
+
+  <div class="legend">
+    <span><i class="dot done"></i> Realizado</span>
+    <span><i class="dot progress"></i> Em progresso</span>
+    <span><i class="dot standby"></i> Standby</span>
+    <span><i class="dot pending"></i> Pendente</span>
+  </div>
+
+  <div class="timeline">
+        <section class="month">
+          <div class="month-head">
+            <div>
+              <div class="month-title">Setembro/2026</div>
+              <div class="period">15/09 a 30/09</div>
+            </div>
+            <div class="count">3 atividades</div>
+          </div>
+          <div class="tasks">
+            <div class="task">
+              <div class="dot progress"></div>
+              <div class="task-main">
+                <div class="task-title">Instalação do Sistema nas máquinas dos usuários</div>
+                <div class="task-meta">
+                  <span class="badge progress">Em progresso</span>
+                  <span>Em progresso</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot progress"></div>
+              <div class="task-main">
+                <div class="task-title">Mapeamento da Estrutura de Centros de Custos e Planos de Contas</div>
+                <div class="task-meta">
+                  <span class="badge progress">Em progresso</span>
+                  <span>Em progresso</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot progress"></div>
+              <div class="task-main">
+                <div class="task-title">Cadastro do Plano de Contas Gerencial</div>
+                <div class="task-meta">
+                  <span class="badge progress">Em progresso</span>
+                  <span>Em progresso</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div></div>
+        </section>
+        <section class="month">
+          <div class="month-head">
+            <div>
+              <div class="month-title">Outubro/2026</div>
+              <div class="period">01/10 a 31/10</div>
+            </div>
+            <div class="count">7 atividades</div>
+          </div>
+          <div class="tasks">
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Treinamento de Cadastros de Colaboradores Operacionais e Administrativos</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Treinamento de Cadastro de Veículos</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Cadastro de Documentos Veiculos e Pessoas com vencimentos</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Reunião com a Contabilidade</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Mapeamento do Setor de Compras</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                <div class="obs">Verificar no mapeamento cotações, alçadas de compra e checklist dos veículos pelo APP</div>
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Configuração da Figura Fiscal – Notas de Compra</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Configuração Naturezas de Operação para Notas e Conhecimentos</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div></div>
+        </section>
+        <section class="month">
+          <div class="month-head">
+            <div>
+              <div class="month-title">Novembro/2026</div>
+              <div class="period">01/11 a 30/11</div>
+            </div>
+            <div class="count">5 atividades</div>
+          </div>
+          <div class="tasks">
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Treinamento de Importações de Notas de Compras, Geração de Ordens de Compras e Alçadas de valores</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Mapeamento e Treinamento de Geração de Abastecimentos Internos e Externos</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Mapeamento Logístico – Lançamentos de Viagens, Emissões de CT-es e MDF-es</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Relatórios Fiscais – Notas de Entrada</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Mapeamento de Pneus e Manutenção</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div></div>
+        </section>
+        <section class="month">
+          <div class="month-head">
+            <div>
+              <div class="month-title">Dezembro/2026</div>
+              <div class="period">01/12 a 31/12</div>
+            </div>
+            <div class="count">4 atividades</div>
+          </div>
+          <div class="tasks">
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Treinamento de Lançamentos de Viagens e Emissões de Documentos em Homologação</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Validação de Abastecimentos e Médias</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Mapeamento Financeiro - Emissão Boletos - Conciliação Bancária</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Relatórios Logísticos</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div></div>
+        </section>
+        <section class="month">
+          <div class="month-head">
+            <div>
+              <div class="month-title">Janeiro/2027</div>
+              <div class="period">01/01 a 31/01</div>
+            </div>
+            <div class="count">6 atividades</div>
+          </div>
+          <div class="tasks">
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Treinamento de Lançamentos Financeiros</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Treinamento de Baixas Financeiras</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Validação dos Lançamentos Financeiros e Relatórios Financeiros</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Validação do Módulo Logístico e Emissões</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Reunião com a Contabilidade</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Validação dos Lançamentos Financeiros e Relatórios Financeiros</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div></div>
+        </section>
+        <section class="month">
+          <div class="month-head">
+            <div>
+              <div class="month-title">Fevereiro/2027</div>
+              <div class="period">01/02 a 28/02</div>
+            </div>
+            <div class="count">6 atividades</div>
+          </div>
+          <div class="tasks">
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Validação do Módulo Logístico e Emissões</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Validação de Todos os Lançamentos</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Geração do SPED Fiscal</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Validação do SPED Fiscal com a Contabilidade</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Validação Integração Contábil</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Relatórios Diversos</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div></div>
+        </section>
+        <section class="month">
+          <div class="month-head">
+            <div>
+              <div class="month-title">Março/2027</div>
+              <div class="period">01/03 a 31/03</div>
+            </div>
+            <div class="count">1 atividades</div>
+          </div>
+          <div class="tasks">
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">Fechamento Tecnico e Validação Individual</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span></span>
+                  
+                </div>
+                
+              </div>
+            </div></div>
+        </section>
+        <section class="month">
+          <div class="month-head">
+            <div>
+              <div class="month-title">Abril/2027</div>
+              <div class="period">01/04</div>
+            </div>
+            <div class="count">1 atividades</div>
+          </div>
+          <div class="tasks">
+            <div class="task">
+              <div class="dot pending"></div>
+              <div class="task-main">
+                <div class="task-title">GO LIVE</div>
+                <div class="task-meta">
+                  <span class="badge pending">Pendente</span>
+                  <span>Aguardando</span>
+                  <span>Responsável: Giovanni</span>
+                </div>
+                
+              </div>
+            </div></div>
+        </section></div>
+  <footer>Cronograma estruturado a partir do planejamento de implantação fornecido.</footer>
+</main>
+</body>
+</html>
